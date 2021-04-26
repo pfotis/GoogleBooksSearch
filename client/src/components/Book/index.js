@@ -1,9 +1,11 @@
 import React from 'react';
 import { ListItem } from '../List';
 import { Row, Col } from '../Grid';
+import './style.css';
 
 function Book({ title, subtitle, authors, link, description, image, Button }) {
   return (
+    <>
     <ListItem >
       <Row className='flex-wrap-reverse'  >
         <Col size='md-8'>
@@ -21,7 +23,7 @@ function Book({ title, subtitle, authors, link, description, image, Button }) {
       </Row>
       <Row>
         <Col size='md-6'>
-          <p>Written by {authors}</p>
+          <p className='font-italic small'>Written by {authors}</p>
         </Col>
       </Row>
       <Row>
@@ -33,6 +35,7 @@ function Book({ title, subtitle, authors, link, description, image, Button }) {
         </Col>
       </Row>
     </ListItem>
+    </>
   );
 }
 

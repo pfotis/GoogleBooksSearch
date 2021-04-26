@@ -1,37 +1,57 @@
-const db = require("../models");
+const db = require('../models');
 
-// Defining methods for the booksController
 module.exports = {
-  findAll: function(req, res) {
-    db.Book
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  findById: function(req, res) {
-    db.Book
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  create: function(req, res) {
-    db.Book
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  update: function(req, res) {
-    db.Book
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  remove: function(req, res) {
-    db.Book
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  }
+	// Find all saved books
+	findAll: async (req, res) => {
+		try {
+			const books = await db.Book.find(req.query);
+			return res.json(books);
+		} catch (error) {
+			return res.status(422).json(error);
+		}
+	},
+
+	// Find book by ID
+	findById: async (req, res) => {
+		try {
+			const books = await db.Book.findById(req.params.id);
+			return res.json(books);
+		} catch (error) {
+			return res.status(422).json(error);
+		}
+	},
+
+	// Create/save book in database
+	create: async (req, res) => {
+		try {
+			const book = await db.Book.create(req.body);
+			return res.json(book);
+		} catch (error) {
+			return res.status(422).json(error);
+		}
+	},
+
+	// Update one book by ID
+	update: async (req, res) => {
+		try {
+			const book = await db.Book.findOneAndUpdate(
+				{ id: req.params.id },
+				req.body
+			);
+			return res.json(book);
+		} catch (error) {
+			return res.status(422).json(error);
+		}
+	},
+
+	// Delete book from database
+	remove: async (req, res) => {
+		try {
+			const book = await db.Book.findById(req.params.id);
+			const deletedBook = await book.remove();
+			return res.json(deletedBook);
+		} catch (error) {
+			return res.status(422).json(error);
+		}
+	},
 };

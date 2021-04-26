@@ -6,6 +6,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../Components/Grid";
 import { List } from "../Components/List";
 
+
 class SavedBooks extends Component {
   state = {
     books: [],
@@ -26,13 +27,13 @@ class SavedBooks extends Component {
   };
 
   handleBookDelete = (id) => {
-    API.deleteBook(id)
-        .then((res) => this.getSavedBooks())
-        .catch((err) => console.log(err));
+    API.deleteBook(id).then((res) => this.getSavedBooks());
   };
 
   render() {
     return (
+      <>
+
       <Container>
         <Row>
           <Col size="md-12">
@@ -48,7 +49,7 @@ class SavedBooks extends Component {
                 <List>
                   {this.state.books.map((book) => (
                     <Book
-                      key={book.id}
+                      key={book._id}
                       title={book.title}
                       subtitle={book.subtitle}
                       link={book.link}
@@ -73,7 +74,9 @@ class SavedBooks extends Component {
             </Card>
           </Col>
         </Row>
+       
       </Container>
+      </>
     );
   }
 }

@@ -1,16 +1,19 @@
 import React from "react";
 
-function Form({ searchValue, handleInputChange, handleFormSubmit }) {
+function Form({ q, handleInputChange, handleFormSubmit }) {
   return (
     <form>
       <div className="form-group">
+        <label htmlFor="Query">
+          <strong style = {{fontSize : 'x-large' }}>Book</strong>
+        </label>
         <input
           className="form-control"
           id="Title"
           type="text"
-          value={searchValue}
+          value={q}
           placeholder="Enter the book you want to search"
-          name="searchValue"
+          name="q"
           onChange={handleInputChange}
           required
         />
