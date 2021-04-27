@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-// Components
-import Jumbotron from '../Components/Jumbotron';
-import Card from '../Components/Card';
-import Form from '../Components/Form';
-import Book from '../Components/Book';
-import { Col, Row, Container } from '../Components/Grid';
-import { List } from '../Components/List';
+// components
+import Jumbotron from '../components/Jumbotron';
+import Card from '../components/Card';
+import Form from '../components/Form';
+import Book from '../components/Book';
+import { Col, Row, Container } from '../components/Grid';
+import { List } from '../components/List';
 
 // API call
 import API from '../utils/API';
@@ -15,7 +15,7 @@ import API from '../utils/API';
 // Search Books class component
 class SearchBooks extends Component {
 	
-	// Components initial state
+	// components initial state
 	state = {
 		books: [],
 		q: '',
