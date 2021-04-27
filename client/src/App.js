@@ -7,13 +7,13 @@ import SavedBook from './pages/SavedBook';
 import NoMatch from './pages/NoMatch';
 
 // Import Components
-import Nav from './Components/Nav/index';
+// import Nav from './Components/Nav/index';
 
 function App() {
 	return (
 		<Router>
 			<div>
-				<Nav />
+				{/* <Nav /> */}
 				<Switch>
 					<Route exact path="/">
 						<SearchBook />
