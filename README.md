@@ -16,7 +16,9 @@
 
 ## Description
 
-    At this app the use could search for any book he/she like. It is not important the user to know the title of the book but the user could type subject or theme of the books. This is happen with the help from the google API.
+    At this app the use could search for any book he/she like. It is not important the user 
+    to know the title of the book but the user could type subject or theme of the books. This 
+    is happen with the help from the google API.
 
 
 ## Built With
